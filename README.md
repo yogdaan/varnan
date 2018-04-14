@@ -1,2 +1,2 @@
-# api-analyzer
+# Varnan
 Analytics Tool for APIs
