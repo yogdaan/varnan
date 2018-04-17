@@ -1,17 +1,20 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
-import createVarnanApp as cva
-from flask_sqlalchemy import SQLAlchemy
+from controllers.statusLogs import StatusLogs
 
 app = Flask(__name__)
-
-api = Api(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
-db = SQLAlchemy(app)
-api.add_resource(cva.createApp, '/api/hello')
+api = Api(app)
+
+api.add_resource(StatusLogs, '/statusLogs')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    from db import db
+    db.init_app(app)
+    app.run(port=5000, debug=True)
+    
