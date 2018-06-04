@@ -1,7 +1,7 @@
 from db import db
 
-class ExceptitonLogsModel(db.Model):
 
+class ExceptitonLogsModel(db.Model):
     __tablename__ = 'exceptions'
 
     id = db.Column(db.Integer, primary_key=True)
