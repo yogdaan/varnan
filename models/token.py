@@ -2,8 +2,8 @@ from db import db
 import md5
 import json
 
-class Token(db.Model):
 
+class Token(db.Model):
     __tablename__ = 'Tokens'
 
     token = db.Column(db.string(32))
@@ -18,8 +18,8 @@ class Token(db.Model):
     def generateToken(self):
         MD5 = md5.new()
         tokenObject = json.dumps({
-            'user' : self.user,
-            'url' : self.url
+            'user': self.user,
+            'url': self.url
         })
         MD5.update(tokenObject)
         self.token = MD5.hexdigest
