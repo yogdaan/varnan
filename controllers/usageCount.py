@@ -7,7 +7,7 @@ class UsageCount(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('url',
                         type=str,
-                        required=True,
+                        action='append',
                         help=""
                         )
 
